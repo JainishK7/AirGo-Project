@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Insurance - AirGo</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-plane-departure"></i>AirGo
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="flights.html">Flights</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="hotels.html">Hotels</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cars.html">Cars</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="offers.html">Offers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="insurance.html">Insurance</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html"><i class="fas fa-user"></i> Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.html"><i class="fas fa-user-plus"></i> Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Travel Insurance Plans</h1>
+            <p>Protect your trip with our comprehensive insurance plans</p>
+        </div>
+    </section>
+
+    <!-- Insurance Plans Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="insurance-card">
+                        <div class="insurance-header">
+                            <i class="fas fa-shield-alt"></i>
+                            <h3>Basic Plan</h3>
+                            <div class="insurance-price">₹999</div>
+                        </div>
+                        <ul class="insurance-features">
+                            <li><i class="fas fa-check"></i> Trip Cancellation: ₹5L</li>
+                            <li><i class="fas fa-check"></i> Medical Coverage: ₹10L</li>
+                            <li><i class="fas fa-check"></i> Baggage Loss: ₹1L</li>
+                            <li><i class="fas fa-check"></i> Emergency Assistance</li>
+                            <li><i class="fas fa-times text-muted"></i> Flight Delay</li>
+                            <li><i class="fas fa-times text-muted"></i> 24/7 Support</li>
+                        </ul>
+                        <button class="btn btn-outline-primary w-100">Select Plan</button>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="insurance-card recommended">
+                        <div class="recommended-badge">Most Popular</div>
+                        <div class="insurance-header">
+                            <i class="fas fa-shield-alt"></i>
+                            <h3>Standard Plan</h3>
+                            <div class="insurance-price">₹1,499</div>
+                        </div>
+                        <ul class="insurance-features">
+                            <li><i class="fas fa-check"></i> Trip Cancellation: ₹8L</li>
+                            <li><i class="fas fa-check"></i> Medical Coverage: ₹20L</li>
+                            <li><i class="fas fa-check"></i> Baggage Loss: ₹2L</li>
+                            <li><i class="fas fa-check"></i> Flight Delay: ₹50K</li>
+                            <li><i class="fas fa-check"></i> Emergency Assistance</li>
+                            <li><i class="fas fa-times text-muted"></i> 24/7 Support</li>
+                        </ul>
+                        <button class="btn btn-primary w-100">Select Plan</button>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="insurance-card">
+                        <div class="insurance-header">
+                            <i class="fas fa-shield-alt"></i>
+                            <h3>Premium Plan</h3>
+                            <div class="insurance-price">₹2,999</div>
+                        </div>
+                        <ul class="insurance-features">
+                            <li><i class="fas fa-check"></i> Trip Cancellation: ₹15L</li>
+                            <li><i class="fas fa-check"></i> Medical Coverage: ₹50L</li>
+                            <li><i class="fas fa-check"></i> Baggage Loss: ₹5L</li>
+                            <li><i class="fas fa-check"></i> Flight Delay: ₹1L</li>
+                            <li><i class="fas fa-check"></i> Emergency Assistance</li>
+                            <li><i class="fas fa-check"></i> 24/7 Premium Support</li>
+                        </ul>
+                        <button class="btn btn-outline-primary w-100">Select Plan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Insurance Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Why Choose Travel Insurance?</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="feature-box">
+                        <i class="fas fa-umbrella"></i>
+                        <h4>Complete Protection</h4>
+                        <p>Coverage for medical emergencies, trip cancellations, and baggage loss during your travels.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-box">
+                        <i class="fas fa-clock"></i>
+                        <h4>Instant Claim Process</h4>
+                        <p>Quick and hassle-free claim settlement with minimal documentation required.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-box">
+                        <i class="fas fa-globe"></i>
+                        <h4>Worldwide Coverage</h4>
+                        <p>Travel anywhere with confidence knowing you're protected globally.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insurance Claim Form Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="insurance-form-card">
+                        <h3 class="mb-4"><i class="fas fa-file-medical"></i> File a Claim</h3>
+                        <form id="insuranceClaimForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="policyNumber" class="form-label">Policy Number</label>
+                                    <input type="text" class="form-control" id="policyNumber" placeholder="Enter policy number" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="claimType" class="form-label">Claim Type</label>
+                                    <select class="form-select" id="claimType" required>
+                                        <option value="">Select Claim Type</option>
+                                        <option value="medical">Medical Emergency</option>
+                                        <option value="cancellation">Trip Cancellation</option>
+                                        <option value="baggage">Baggage Loss</option>
+                                        <option value="delay">Flight Delay</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="claimName" class="form-label">Your Name</label>
+                                    <input type="text" class="form-control" id="claimName" placeholder="Enter your name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="claimEmail" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="claimEmail" placeholder="Enter your email" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="claimPhone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="claimPhone" placeholder="Enter phone number" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="incidentDate" class="form-label">Incident Date</label>
+                                <input type="date" class="form-control" id="incidentDate" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="claimAmount" class="form-label">Claim Amount (₹)</label>
+                                <input type="number" class="form-control" id="claimAmount" placeholder="Enter claim amount" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="claimDescription" class="form-label">Incident Description</label>
+                                <textarea class="form-control" id="claimDescription" rows="4" placeholder="Describe the incident in detail" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-file-upload"></i> Submit Claim
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5><i class="fas fa-plane-departure"></i> AirGo</h5>
+                    <p>Your trusted partner for hassle-free flight bookings. Travel the world with confidence and comfort.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <a href="index.html">Home</a>
+                    <a href="flights.html">Flights</a>
+                    <a href="offers.html">Special Offers</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Support</h5>
+                    <a href="feedback.html">Feedback</a>
+                    <a href="insurance.html">Travel Insurance</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+            <hr style="background-color: white; opacity: 0.3;">
+            <div class="text-center">
+                <p>&copy; 2025 AirGo. All Rights Reserved. | Designed for hassle-free travel</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/insurance.js"></script>
+</body>
+</html>

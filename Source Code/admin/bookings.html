@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookings Management - AirGo Admin</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <nav class="admin-sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h3><i class="fas fa-plane-departure"></i> AirGo Admin</h3>
+            </div>
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="flights.html"><i class="fas fa-plane"></i> Flight Management</a>
+                </li>
+                <li class="active">
+                    <a href="bookings.html"><i class="fas fa-ticket-alt"></i> Bookings</a>
+                </li>
+                <li>
+                    <a href="users.html"><i class="fas fa-users"></i> Users</a>
+                </li>
+                <li>
+                    <a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a>
+                </li>
+                <li>
+                    <a href="reports.html"><i class="fas fa-file-alt"></i> Reports</a>
+                </li>
+                <li>
+                    <a href="feedback-review.html"><i class="fas fa-comments"></i> Feedback Review</a>
+                </li>
+                <li>
+                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                </li>
+                <li>
+                    <a href="audit-logs.html"><i class="fas fa-history"></i> Audit Logs</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="admin-content">
+            <!-- Top Navbar -->
+            <nav class="admin-navbar">
+                <div class="navbar-left">
+                    <button class="btn btn-link" id="sidebarToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h4 class="mb-0">Booking Management</h4>
+                </div>
+                <div class="navbar-right">
+                    <div class="dropdown">
+                        <button class="btn btn-link dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle"></i> Jainish
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <div class="admin-main-content">
+                <!-- Stats Cards -->
+                <div class="row g-3 mb-4">
+                    <div class="col-md-3">
+                        <div class="mini-stat-card stat-success">
+                            <div class="stat-info">
+                                <h4>842</h4>
+                                <p>Confirmed</p>
+                            </div>
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mini-stat-card stat-warning">
+                            <div class="stat-info">
+                                <h4>156</h4>
+                                <p>Pending</p>
+                            </div>
+                            <i class="fas fa-clock"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mini-stat-card stat-danger">
+                            <div class="stat-info">
+                                <h4>89</h4>
+                                <p>Cancelled</p>
+                            </div>
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mini-stat-card stat-info">
+                            <div class="stat-info">
+                                <h4>160</h4>
+                                <p>Completed</p>
+                            </div>
+                            <i class="fas fa-flag-checkered"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filter and Search -->
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <select class="form-select">
+                            <option selected>All Bookings</option>
+                            <option value="confirmed">Confirmed</option>
+                            <option value="pending">Pending</option>
+                            <option value="cancelled">Cancelled</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search by Booking ID, User, or Flight..." id="searchBooking">
+                            <button class="btn btn-admin-primary" type="button">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bookings Table -->
+                <div class="admin-card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-ticket-alt"></i> All Bookings</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Booking ID</th>
+                                        <th>User</th>
+                                        <th>Flight No</th>
+                                        <th>Route</th>
+                                        <th>Booking Date</th>
+                                        <th>Travel Date</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>BK1001</strong></td>
+                                        <td>akshit123</td>
+                                        <td>AI-203</td>
+                                        <td>DEL → BOM</td>
+                                        <td>09 Nov 2025</td>
+                                        <td>11 Nov 2025</td>
+                                        <td>₹4,599</td>
+                                        <td><span class="badge badge-success">Confirmed</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-admin-info" data-bs-toggle="modal" data-bs-target="#viewBookingModal">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-admin-danger" onclick="cancelBooking('BK1001')">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>BK1002</strong></td>
+                                        <td>aparna_j</td>
+                                        <td>6E-401</td>
+                                        <td>BLR → JAI</td>
+                                        <td>10 Nov 2025</td>
+                                        <td>12 Nov 2025</td>
+                                        <td>₹5,299</td>
+                                        <td><span class="badge badge-warning">Pending</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-admin-info" data-bs-toggle="modal" data-bs-target="#viewBookingModal">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-admin-success" onclick="confirmBooking('BK1002')">
+                                                <i class="fas fa-check"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>BK1003</strong></td>
+                                        <td>rahulg</td>
+                                        <td>SG-212</td>
+                                        <td>LKO → GOI</td>
+                                        <td>09 Nov 2025</td>
+                                        <td>13 Nov 2025</td>
+                                        <td>₹6,899</td>
+                                        <td><span class="badge badge-danger">Cancelled</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-admin-info" data-bs-toggle="modal" data-bs-target="#viewBookingModal">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-admin-primary" onclick="refundBooking('BK1003')">
+                                                <i class="fas fa-undo"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>BK1004</strong></td>
+                                        <td>tripti99</td>
+                                        <td>I5-512</td>
+                                        <td>COK → AMD</td>
+                                        <td>10 Nov 2025</td>
+                                        <td>14 Nov 2025</td>
+                                        <td>₹4,899</td>
+                                        <td><span class="badge badge-success">Confirmed</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-admin-info" data-bs-toggle="modal" data-bs-target="#viewBookingModal">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-admin-danger" onclick="cancelBooking('BK1004')">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>BK1005</strong></td>
+                                        <td>chetan_k</td>
+                                        <td>QP-701</td>
+                                        <td>MAA → PNQ</td>
+                                        <td>08 Nov 2025</td>
+                                        <td>14 Nov 2025</td>
+                                        <td>₹3,999</td>
+                                        <td><span class="badge badge-warning">Delayed</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-admin-info" data-bs-toggle="modal" data-bs-target="#viewBookingModal">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-admin-primary" onclick="notifyUser('BK1005')">
+                                                <i class="fas fa-bell"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/admin.js"></script>
+    <script src="../js/admin-bookings.js"></script>
+</body>
+</html>

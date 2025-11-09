@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Review - AirGo Admin</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <nav class="admin-sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h3><i class="fas fa-plane-departure"></i> AirGo Admin</h3>
+            </div>
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="flights.html"><i class="fas fa-plane"></i> Flight Management</a>
+                </li>
+                <li>
+                    <a href="bookings.html"><i class="fas fa-ticket-alt"></i> Bookings</a>
+                </li>
+                <li>
+                    <a href="users.html"><i class="fas fa-users"></i> Users</a>
+                </li>
+                <li>
+                    <a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a>
+                </li>
+                <li>
+                    <a href="reports.html"><i class="fas fa-file-alt"></i> Reports</a>
+                </li>
+                <li class="active">
+                    <a href="feedback-review.html"><i class="fas fa-comments"></i> Feedback Review</a>
+                </li>
+                <li>
+                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                </li>
+                <li>
+                    <a href="audit-logs.html"><i class="fas fa-history"></i> Audit Logs</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="admin-content">
+            <!-- Top Navbar -->
+            <nav class="admin-navbar">
+                <div class="navbar-left">
+                    <button class="btn btn-link" id="sidebarToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h4 class="mb-0">Customer Feedback Review</h4>
+                </div>
+                <div class="navbar-right">
+                    <div class="dropdown">
+                        <button class="btn btn-link dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle"></i> Jainish
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <div class="admin-main-content">
+                <!-- Stats Overview -->
+                <div class="row g-3 mb-4">
+                    <div class="col-md-3">
+                        <div class="mini-stat-card stat-success">
+                            <div class="stat-info">
+                                <h4>342</h4>
+                                <p>Total Feedback</p>
+                            </div>
+                            <i class="fas fa-comments"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mini-stat-card stat-warning">
+                            <div class="stat-info">
+                                <h4>4.6/5.0</h4>
+                                <p>Average Rating</p>
+                            </div>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mini-stat-card stat-info">
+                            <div class="stat-info">
+                                <h4>287</h4>
+                                <p>Positive Reviews</p>
+                            </div>
+                            <i class="fas fa-thumbs-up"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mini-stat-card stat-danger">
+                            <div class="stat-info">
+                                <h4>18</h4>
+                                <p>Needs Attention</p>
+                            </div>
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filter Section -->
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <select class="form-select" id="ratingFilter">
+                            <option value="">All Ratings</option>
+                            <option value="5">5 Stars</option>
+                            <option value="4">4 Stars</option>
+                            <option value="3">3 Stars</option>
+                            <option value="2">2 Stars</option>
+                            <option value="1">1 Star</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select" id="categoryFilter">
+                            <option value="">All Categories</option>
+                            <option value="flight">Flight Experience</option>
+                            <option value="booking">Booking Process</option>
+                            <option value="customer-service">Customer Service</option>
+                            <option value="website">Website/App</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search feedback..." id="searchFeedback">
+                            <button class="btn btn-admin-primary" type="button">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feedback Cards -->
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="feedback-review-card">
+                            <div class="feedback-header">
+                                <div>
+                                    <h6>Akshit Sharma</h6>
+                                    <small class="text-muted">akshit123@email.com</small>
+                                </div>
+                                <div class="text-end">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                    </div>
+                                    <small class="text-muted">07 Nov 2025</small>
+                                </div>
+                            </div>
+                            <div class="feedback-body">
+                                <span class="badge badge-primary mb-2">Flight Experience</span>
+                                <p>"Excellent service! The flight was on time and the booking process was very smooth. Highly recommend AirGo for hassle-free travel."</p>
+                            </div>
+                            <div class="feedback-footer">
+                                <span class="text-muted"><strong>Booking ID:</strong> BK1001</span>
+                                <button class="btn btn-sm btn-admin-success" onclick="respondFeedback('FB001')">
+                                    <i class="fas fa-reply"></i> Respond
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="feedback-review-card">
+                            <div class="feedback-header">
+                                <div>
+                                    <h6>Aparna Joshi</h6>
+                                    <small class="text-muted">aparna_j@email.com</small>
+                                </div>
+                                <div class="text-end">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="far fa-star text-warning"></i>
+                                    </div>
+                                    <small class="text-muted">06 Nov 2025</small>
+                                </div>
+                            </div>
+                            <div class="feedback-body">
+                                <span class="badge badge-info mb-2">Booking Process</span>
+                                <p>"Great experience overall. The website is user-friendly and payment was secure. Just wish there were more payment options available."</p>
+                            </div>
+                            <div class="feedback-footer">
+                                <span class="text-muted"><strong>Booking ID:</strong> BK1002</span>
+                                <button class="btn btn-sm btn-admin-success" onclick="respondFeedback('FB002')">
+                                    <i class="fas fa-reply"></i> Respond
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="feedback-review-card">
+                            <div class="feedback-header">
+                                <div>
+                                    <h6>Rahul Gupta</h6>
+                                    <small class="text-muted">rahulg@email.com</small>
+                                </div>
+                                <div class="text-end">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="far fa-star text-warning"></i>
+                                        <i class="far fa-star text-warning"></i>
+                                    </div>
+                                    <small class="text-muted">05 Nov 2025</small>
+                                </div>
+                            </div>
+                            <div class="feedback-body">
+                                <span class="badge badge-warning mb-2">Customer Service</span>
+                                <p>"Had to cancel my booking due to an emergency. The cancellation process was okay but refund took longer than expected. Customer service was helpful though."</p>
+                            </div>
+                            <div class="feedback-footer">
+                                <span class="text-muted"><strong>Booking ID:</strong> BK1003</span>
+                                <button class="btn btn-sm btn-admin-success" onclick="respondFeedback('FB003')">
+                                    <i class="fas fa-reply"></i> Respond
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="feedback-review-card">
+                            <div class="feedback-header">
+                                <div>
+                                    <h6>Tripti Verma</h6>
+                                    <small class="text-muted">tripti99@email.com</small>
+                                </div>
+                                <div class="text-end">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star-half-alt text-warning"></i>
+                                    </div>
+                                    <small class="text-muted">04 Nov 2025</small>
+                                </div>
+                            </div>
+                            <div class="feedback-body">
+                                <span class="badge badge-success mb-2">Website/App</span>
+                                <p>"Amazing platform! Very easy to search and compare flights. Love the clean interface and quick booking process. Will definitely use again!"</p>
+                            </div>
+                            <div class="feedback-footer">
+                                <span class="text-muted"><strong>Booking ID:</strong> BK1004</span>
+                                <button class="btn btn-sm btn-admin-success" onclick="respondFeedback('FB004')">
+                                    <i class="fas fa-reply"></i> Respond
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="feedback-review-card border-danger">
+                            <div class="feedback-header">
+                                <div>
+                                    <h6>Chetan Kumar</h6>
+                                    <small class="text-muted">chetan_k@email.com</small>
+                                </div>
+                                <div class="text-end">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="far fa-star text-warning"></i>
+                                        <i class="far fa-star text-warning"></i>
+                                        <i class="far fa-star text-warning"></i>
+                                    </div>
+                                    <small class="text-muted">03 Nov 2025</small>
+                                </div>
+                            </div>
+                            <div class="feedback-body">
+                                <span class="badge badge-danger mb-2">Flight Experience</span>
+                                <p>"Flight was delayed by 3 hours with no prior notification. Very disappointing experience. Expected better communication from the airline."</p>
+                            </div>
+                            <div class="feedback-footer">
+                                <span class="text-muted"><strong>Booking ID:</strong> BK1005</span>
+                                <button class="btn btn-sm btn-admin-danger" onclick="escalateFeedback('FB005')">
+                                    <i class="fas fa-exclamation-circle"></i> Escalate
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="feedback-review-card">
+                            <div class="feedback-header">
+                                <div>
+                                    <h6>Priya Malhotra</h6>
+                                    <small class="text-muted">priya.m@email.com</small>
+                                </div>
+                                <div class="text-end">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="far fa-star text-warning"></i>
+                                    </div>
+                                    <small class="text-muted">02 Nov 2025</small>
+                                </div>
+                            </div>
+                            <div class="feedback-body">
+                                <span class="badge badge-primary mb-2">Booking Process</span>
+                                <p>"Smooth booking experience and got a great deal! The offers section is very helpful. Keep up the good work!"</p>
+                            </div>
+                            <div class="feedback-footer">
+                                <span class="text-muted"><strong>Booking ID:</strong> BK1006</span>
+                                <button class="btn btn-sm btn-admin-success" onclick="respondFeedback('FB006')">
+                                    <i class="fas fa-reply"></i> Respond
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/admin.js"></script>
+    <script src="../js/admin-feedback.js"></script>
+</body>
+</html>

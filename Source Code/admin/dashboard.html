@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AirGo Admin</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+
+<body>
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <nav class="admin-sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h3><i class="fas fa-plane-departure"></i> AirGo Admin</h3>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="active">
+                    <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="flights.html"><i class="fas fa-plane"></i> Flight Management</a>
+                </li>
+                <li>
+                    <a href="bookings.html"><i class="fas fa-ticket-alt"></i> Bookings</a>
+                </li>
+                <li>
+                    <a href="users.html"><i class="fas fa-users"></i> Users</a>
+                </li>
+                <li>
+                    <a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a>
+                </li>
+                <li>
+                    <a href="reports.html"><i class="fas fa-file-alt"></i> Reports</a>
+                </li>
+                <li>
+                    <a href="feedback-review.html"><i class="fas fa-comments"></i> Feedback Review</a>
+                </li>
+                <li>
+                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                </li>
+                <li>
+                    <a href="audit-logs.html"><i class="fas fa-history"></i> Audit Logs</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="admin-content">
+            <!-- Top Navbar -->
+            <nav class="admin-navbar">
+                <div class="navbar-left">
+                    <button class="btn btn-link" id="sidebarToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h4 class="mb-0">Dashboard</h4>
+                </div>
+                <div class="navbar-right">
+                    <div class="dropdown">
+                        <button class="btn btn-link dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle"></i> Jainish
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="login.html"><i class="fas fa-sign-out-alt"></i>
+                                    Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Dashboard Content -->
+            <div class="admin-main-content">
+                <!-- Stats Cards -->
+                <div class="row g-4 mb-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="stat-card stat-primary">
+                            <div class="stat-icon">
+                                <i class="fas fa-ticket-alt"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>1,247</h3>
+                                <p>Total Bookings</p>
+                                <span class="stat-badge success"><i class="fas fa-arrow-up"></i> 12%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="stat-card stat-success">
+                            <div class="stat-icon">
+                                <i class="fas fa-plane"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>86</h3>
+                                <p>Active Flights</p>
+                                <span class="stat-badge info"><i class="fas fa-minus"></i> 0%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="stat-card stat-warning">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>3,542</h3>
+                                <p>Registered Users</p>
+                                <span class="stat-badge success"><i class="fas fa-arrow-up"></i> 8%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="stat-card stat-danger">
+                            <div class="stat-icon">
+                                <i class="fas fa-rupee-sign"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>₹24.5L</h3>
+                                <p>Total Revenue</p>
+                                <span class="stat-badge success"><i class="fas fa-arrow-up"></i> 18%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activities and Alerts -->
+                <div class="row g-4 mb-4">
+                    <div class="col-lg-8">
+                        <div class="admin-card">
+                            <div class="card-header">
+                                <h5><i class="fas fa-chart-bar"></i> Booking Trends</h5>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="bookingChart" height="80"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="admin-card">
+                        <div class="card-header">
+                            <h5><i class="fas fa-bell"></i> Real-Time Alerts</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="alert-item alert-warning">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <div>
+                                    <strong>Flight SG-212 Delayed</strong>
+                                    <small>Expected delay: 2 hours</small>
+                                </div>
+                            </div>
+                            <div class="alert-item alert-success">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <strong>Refund Processed</strong>
+                                    <small>Booking ID: BK1003</small>
+                                </div>
+                            </div>
+                            <div class="alert-item alert-info">
+                                <i class="fas fa-info-circle"></i>
+                                <div>
+                                    <strong>New User Registered</strong>
+                                    <small>Welcome: rahul_kumar</small>
+                                </div>
+                            </div>
+                            <div class="alert-item alert-danger">
+                                <i class="fas fa-times-circle"></i>
+                                <div>
+                                    <strong>Flight QP-701 Cancelled</strong>
+                                    <small>Passengers notified</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Bookings Table -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="admin-card">
+                        <div class="card-header">
+                            <h5><i class="fas fa-list"></i> Recent Bookings</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Booking ID</th>
+                                            <th>User</th>
+                                            <th>Flight</th>
+                                            <th>Date</th>
+                                            <th>Amount</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>BK1001</strong></td>
+                                            <td>akshit123</td>
+                                            <td>AI-203 (DEL-BOM)</td>
+                                            <td>09 Nov 2025</td>
+                                            <td>₹4,599</td>
+                                            <td><span class="badge badge-success">Confirmed</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-admin-info"><i
+                                                        class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-admin-primary"><i
+                                                        class="fas fa-edit"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>BK1002</strong></td>
+                                            <td>aparna_j</td>
+                                            <td>6E-401 (BLR-JAI)</td>
+                                            <td>10 Nov 2025</td>
+                                            <td>₹5,299</td>
+                                            <td><span class="badge badge-warning">Pending</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-admin-info"><i
+                                                        class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-admin-primary"><i
+                                                        class="fas fa-edit"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>BK1003</strong></td>
+                                            <td>rahulg</td>
+                                            <td>SG-212 (LKO-GOI)</td>
+                                            <td>09 Nov 2025</td>
+                                            <td>₹6,899</td>
+                                            <td><span class="badge badge-danger">Cancelled</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-admin-info"><i
+                                                        class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-admin-primary"><i
+                                                        class="fas fa-edit"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>BK1004</strong></td>
+                                            <td>tripti99</td>
+                                            <td>I5-512 (COK-AMD)</td>
+                                            <td>10 Nov 2025</td>
+                                            <td>₹4,899</td>
+                                            <td><span class="badge badge-success">Confirmed</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-admin-info"><i
+                                                        class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-admin-primary"><i
+                                                        class="fas fa-edit"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>BK1005</strong></td>
+                                            <td>chetan_k</td>
+                                            <td>QP-701 (MAA-PNQ)</td>
+                                            <td>08 Nov 2025</td>
+                                            <td>₹3,999</td>
+                                            <td><span class="badge badge-warning">Delayed</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-admin-info"><i
+                                                        class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-admin-primary"><i
+                                                        class="fas fa-edit"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/admin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="../js/admin-dashboard-chart.js"></script>
+</body>
+
+</html>

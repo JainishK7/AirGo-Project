@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - AirGo Admin</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <!-- Sidebar (same as before) -->
+        <nav class="admin-sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h3><i class="fas fa-plane-departure"></i> AirGo Admin</h3>
+            </div>
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="flights.html"><i class="fas fa-plane"></i> Flight Management</a>
+                </li>
+                <li>
+                    <a href="bookings.html"><i class="fas fa-ticket-alt"></i> Bookings</a>
+                </li>
+                <li>
+                    <a href="users.html"><i class="fas fa-users"></i> Users</a>
+                </li>
+                <li class="active">
+                    <a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a>
+                </li>
+                <li>
+                    <a href="reports.html"><i class="fas fa-file-alt"></i> Reports</a>
+                </li>
+                <li>
+                    <a href="feedback-review.html"><i class="fas fa-comments"></i> Feedback Review</a>
+                </li>
+                <li>
+                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                </li>
+                <li>
+                    <a href="audit-logs.html"><i class="fas fa-history"></i> Audit Logs</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="admin-content">
+            <!-- Top Navbar -->
+            <nav class="admin-navbar">
+                <div class="navbar-left">
+                    <button class="btn btn-link" id="sidebarToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h4 class="mb-0">Analytics Dashboard</h4>
+                </div>
+                <div class="navbar-right">
+                    <div class="dropdown">
+                        <button class="btn btn-link dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle"></i> Jainish
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <div class="admin-main-content">
+                <!-- Time Period Filter -->
+                <div class="row mb-4">
+                    <div class="col-md-12">
+                        <div class="btn-group" role="group" id="timePeriodButtons">
+                            <button type="button" class="btn btn-admin-primary active" data-period="today">Today</button>
+                            <button type="button" class="btn btn-outline-secondary" data-period="week">This Week</button>
+                            <button type="button" class="btn btn-outline-secondary" data-period="month">This Month</button>
+                            <button type="button" class="btn btn-outline-secondary" data-period="year">This Year</button>
+                            <button type="button" class="btn btn-outline-secondary" data-period="custom">Custom</button>
+                        </div>
+                        <span class="ms-3 text-muted" id="periodLabel">Showing data for: <strong>Today (08 Nov 2025)</strong></span>
+                    </div>
+                </div>
+
+                <!-- Revenue Analytics -->
+                <div class="row g-4 mb-4">
+                    <div class="col-lg-8">
+                        <div class="admin-card">
+                            <div class="card-header">
+                                <h5><i class="fas fa-chart-line"></i> Revenue Trends</h5>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="revenueChart" height="80"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="admin-card">
+                            <div class="card-header">
+                                <h5><i class="fas fa-rupee-sign"></i> Revenue Breakdown</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="revenue-item">
+                                    <span>Domestic Flights</span>
+                                    <strong id="domesticRevenue">₹18.2L</strong>
+                                </div>
+                                <div class="progress mb-3" style="height: 8px;">
+                                    <div class="progress-bar bg-success" id="domesticProgress" style="width: 74%"></div>
+                                </div>
+                                <div class="revenue-item">
+                                    <span>International Flights</span>
+                                    <strong id="internationalRevenue">₹6.3L</strong>
+                                </div>
+                                <div class="progress mb-3" style="height: 8px;">
+                                    <div class="progress-bar bg-primary" id="internationalProgress" style="width: 26%"></div>
+                                </div>
+                                <div class="revenue-item">
+                                    <span>Total Revenue</span>
+                                    <strong class="text-success" id="totalRevenue">₹24.5L</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Booking Analytics -->
+                <div class="row g-4 mb-4">
+                    <div class="col-lg-6">
+                        <div class="admin-card">
+                            <div class="card-header">
+                                <h5><i class="fas fa-chart-pie"></i> Booking Status Distribution</h5>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="bookingPieChart" height="100"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="admin-card">
+                            <div class="card-header">
+                                <h5><i class="fas fa-map-marker-alt"></i> Top Routes</h5>
+                            </div>
+                            <div class="card-body" id="topRoutes">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Performance Metrics -->
+                <div class="row g-4">
+                    <div class="col-md-3">
+                        <div class="metric-card">
+                            <div class="metric-icon bg-primary">
+                                <i class="fas fa-percentage"></i>
+                            </div>
+                            <div class="metric-info">
+                                <h3 id="successRate">87.5%</h3>
+                                <p>Booking Success Rate</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="metric-card">
+                            <div class="metric-icon bg-success">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="metric-info">
+                                <h3 id="avgRating">4.6/5.0</h3>
+                                <p>Average Rating</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="metric-card">
+                            <div class="metric-icon bg-warning">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="metric-info">
+                                <h3 id="responseTime">2.3 min</h3>
+                                <p>Avg. Response Time</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="metric-card">
+                            <div class="metric-icon bg-danger">
+                                <i class="fas fa-redo"></i>
+                            </div>
+                            <div class="metric-info">
+                                <h3 id="cancellationRate">12.5%</h3>
+                                <p>Cancellation Rate</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/admin.js"></script>
+    <script src="../js/admin-analytics.js"></script>
+</body>
+</html>

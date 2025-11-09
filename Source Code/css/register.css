@@ -1,0 +1,305 @@
+html {
+    scroll-behavior: smooth;
+}
+/* Root Variables */
+:root {
+    --primary-color: #0066cc;
+    --secondary-color: #004d99;
+    --accent-color: #ff6b35;
+    --light-bg: #f8f9fa;
+    --dark-text: #333;
+}
+:root{
+  --primary:#3b6df0;
+  --gradient1:#667eea;
+  --gradient2:#764ba2;
+  --muted:#6c757d;
+}
+
+
+* { box-sizing: border-box; }
+body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, #f4f7fb 0%, #eef3ff 100%);
+  color: #222;
+  margin: 0;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-text);
+}
+
+/* Navbar Styles */
+.navbar {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white !important;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.05);
+}
+
+.navbar-brand i {
+    margin-right: 10px;
+    font-size: 2rem;
+}
+
+.nav-link {
+    color: white !important;
+    font-weight: 500;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-color) !important;
+    transform: translateY(-2px);
+}
+
+.nav-link.active {
+    color: var(--accent-color) !important;
+}
+
+
+/* ==================== REGISTER / AUTH CARD ==================== */
+.auth-section { padding-bottom: 60px; padding-top: 40px; }
+
+.auth-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-icon {
+  display: inline-block;
+  font-size: 46px;
+  color: var(--gradient2);
+  background: rgba(118,75,162,0.08);
+  width: 90px;
+  height: 90px;
+  line-height: 90px;
+  text-align: center;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+/* Form container fallback (if older 'register-container' used) */
+.register-container {
+  max-width: 680px;
+  margin: 50px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 30px rgba(0,0,0,0.08);
+}
+
+/* Input styles */
+.form-control, .form-select {
+  border-radius: 10px;
+  padding: 12px 14px;
+  border: 1px solid #e6e9ee;
+  transition: box-shadow .15s ease, border-color .15s ease;
+}
+.form-control:focus, .form-select:focus {
+  box-shadow: 0 6px 24px rgba(59,109,240,0.06);
+  border-color: rgba(59,109,240,0.6);
+  outline: none;
+}
+
+/* Password row */
+.pw-meter-wrapper {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:6px;
+}
+.pw-strength-text {
+  font-size:0.9rem;
+  color:var(--muted);
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(90deg,var(--gradient1),var(--gradient2));
+  border: none;
+  box-shadow: 0 8px 24px rgba(102,126,234,0.12);
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+.btn-primary {
+    background-color: var(--accent-color);
+    border: none;
+    padding: 12px 35px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+/* ==================== PASSWORD STRENGTH BAR ==================== */
+.password-strength {
+  height: 6px;
+  width: 100px;
+  border-radius: 6px;
+  background: #e9ecef;
+  transition: all 0.25s ease;
+  overflow: hidden;
+  position: relative;
+}
+.password-strength::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0%;
+  background: transparent;
+  transition: width 0.25s ease;
+}
+
+/* dynamic classes adjust the ::after and text color via JS */
+.password-strength.strength-weak::after {
+  width: 33%;
+  background: #dc3545;
+}
+.password-strength.strength-medium::after {
+  width: 66%;
+  background: #ffc107;
+}
+.password-strength.strength-strong::after {
+  width: 100%;
+  background: #28a745;
+}
+
+/* ==================== VALIDATION MODAL ==================== */
+.validation-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  animation: fadeIn 0.25s ease;
+}
+.validation-modal-content {
+  background-color: white;
+  margin: 8% auto;
+  padding: 0;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 520px;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.35);
+  animation: slideDown 0.3s ease;
+}
+.validation-modal .modal-header {
+  background: linear-gradient(135deg, var(--gradient1) 0%, var(--gradient2) 100%);
+  color: white;
+  padding: 24px;
+  border-radius: 15px 15px 0 0;
+  text-align: center;
+}
+.validation-modal .modal-header i { font-size: 42px; margin-bottom: 8px; display:block; }
+.validation-modal .modal-header h3 { margin:0; font-size:1.25rem; font-weight:700; }
+.validation-modal .modal-body { padding: 22px; max-height: 340px; overflow-y: auto; }
+.validation-modal .modal-body ol { margin:0; padding-left:20px; text-align:left; }
+.validation-modal .modal-body li { margin-bottom:12px; color:#333; line-height:1.6; }
+.validation-modal .modal-footer { padding:18px; text-align:center; border-top:1px solid #eee; border-radius: 0 0 15px 15px; }
+
+.modal-ok-btn {
+  background: linear-gradient(135deg, var(--gradient1) 0%, var(--gradient2) 100%);
+  color: white;
+  border: none;
+  padding: 10px 36px;
+  border-radius: 9px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(102,126,234,0.18);
+}
+.modal-ok-btn:hover { transform: translateY(-2px); }
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    color: white;
+    padding: 50px 0 20px;
+}
+
+footer h5 {
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+footer p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+footer a:hover {
+    color: var(--accent-color);
+    padding-left: 5px;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 1.5rem;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

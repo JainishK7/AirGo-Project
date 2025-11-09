@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit Logs - AirGo Admin</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <nav class="admin-sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h3><i class="fas fa-plane-departure"></i> AirGo Admin</h3>
+            </div>
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="flights.html"><i class="fas fa-plane"></i> Flight Management</a>
+                </li>
+                <li>
+                    <a href="bookings.html"><i class="fas fa-ticket-alt"></i> Bookings</a>
+                </li>
+                <li>
+                    <a href="users.html"><i class="fas fa-users"></i> Users</a>
+                </li>
+                <li>
+                    <a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a>
+                </li>
+                <li>
+                    <a href="reports.html"><i class="fas fa-file-alt"></i> Reports</a>
+                </li>
+                <li>
+                    <a href="feedback-review.html"><i class="fas fa-comments"></i> Feedback Review</a>
+                </li>
+                <li>
+                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                </li>
+                <li class="active">
+                    <a href="audit-logs.html"><i class="fas fa-history"></i> Audit Logs</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="admin-content">
+            <!-- Top Navbar -->
+            <nav class="admin-navbar">
+                <div class="navbar-left">
+                    <button class="btn btn-link" id="sidebarToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h4 class="mb-0">Audit Logs</h4>
+                </div>
+                <div class="navbar-right">
+                    <div class="dropdown">
+                        <button class="btn btn-link dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle"></i> Jainish
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <div class="admin-main-content">
+                <!-- Filter Section -->
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <select class="form-select">
+                            <option selected>All Activities</option>
+                            <option value="login">Login Events</option>
+                            <option value="booking">Booking Changes</option>
+                            <option value="flight">Flight Updates</option>
+                            <option value="user">User Management</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="date" class="form-control" placeholder="From Date">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="date" class="form-control" placeholder="To Date">
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-admin-primary w-100">
+                            <i class="fas fa-filter"></i> Apply Filter
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Audit Logs Table -->
+                <div class="admin-card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-history"></i> System Activity Logs</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Timestamp</th>
+                                        <th>User</th>
+                                        <th>Action</th>
+                                        <th>Module</th>
+                                        <th>Details</th>
+                                        <th>IP Address</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>08 Nov 2025, 09:45 AM</td>
+                                        <td><strong>Jainish</strong></td>
+                                        <td>Login</td>
+                                        <td><span class="badge badge-primary">Admin</span></td>
+                                        <td>Admin successfully logged in</td>
+                                        <td>192.168.1.1</td>
+                                        <td><span class="badge badge-success">Success</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>08 Nov 2025, 09:30 AM</td>
+                                        <td><strong>Jainish</strong></td>
+                                        <td>Updated Flight</td>
+                                        <td><span class="badge badge-warning">Flights</span></td>
+                                        <td>Flight SG-212 status changed to Delayed</td>
+                                        <td>192.168.1.1</td>
+                                        <td><span class="badge badge-success">Success</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>08 Nov 2025, 09:15 AM</td>
+                                        <td><strong>akshit123</strong></td>
+                                        <td>Booking Created</td>
+                                        <td><span class="badge badge-info">Bookings</span></td>
+                                        <td>New booking BK1001 created for AI-203</td>
+                                        <td>103.45.67.89</td>
+                                        <td><span class="badge badge-success">Success</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>08 Nov 2025, 08:50 AM</td>
+                                        <td><strong>Jainish</strong></td>
+                                        <td>User Blocked</td>
+                                        <td><span class="badge badge-danger">Users</span></td>
+                                        <td>User spam_user123 blocked for violation</td>
+                                        <td>192.168.1.1</td>
+                                        <td><span class="badge badge-success">Success</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>07 Nov 2025, 11:30 PM</td>
+                                        <td><strong>System</strong></td>
+                                        <td>Report Generated</td>
+                                        <td><span class="badge badge-secondary">Reports</span></td>
+                                        <td>Monthly report for October 2025 generated</td>
+                                        <td>System</td>
+                                        <td><span class="badge badge-success">Success</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>07 Nov 2025, 06:20 PM</td>
+                                        <td><strong>tripti99</strong></td>
+                                        <td>Booking Cancelled</td>
+                                        <td><span class="badge badge-info">Bookings</span></td>
+                                        <td>Booking BK1003 cancelled by user</td>
+                                        <td>115.67.89.12</td>
+                                        <td><span class="badge badge-warning">Cancelled</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>07 Nov 2025, 04:15 PM</td>
+                                        <td><strong>Jainish</strong></td>
+                                        <td>Settings Updated</td>
+                                        <td><span class="badge badge-primary">Admin</span></td>
+                                        <td>Email notification settings modified</td>
+                                        <td>192.168.1.1</td>
+                                        <td><span class="badge badge-success">Success</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>07 Nov 2025, 02:30 PM</td>
+                                        <td><strong>aparna_j</strong></td>
+                                        <td>Registration</td>
+                                        <td><span class="badge badge-success">Users</span></td>
+                                        <td>New user registered successfully</td>
+                                        <td>122.45.67.89</td>
+                                        <td><span class="badge badge-success">Success</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>07 Nov 2025, 12:45 PM</td>
+                                        <td><strong>Jainish</strong></td>
+                                        <td>Flight Added</td>
+                                        <td><span class="badge badge-warning">Flights</span></td>
+                                        <td>New flight QR-908 added to system</td>
+                                        <td>192.168.1.1</td>
+                                        <td><span class="badge badge-success">Success</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>07 Nov 2025, 10:00 AM</td>
+                                        <td><strong>admin_failed</strong></td>
+                                        <td>Login Failed</td>
+                                        <td><span class="badge badge-primary">Admin</span></td>
+                                        <td>Failed login attempt - Invalid credentials</td>
+                                        <td>45.67.89.123</td>
+                                        <td><span class="badge badge-danger">Failed</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- Pagination -->
+                        <nav>
+                            <ul class="pagination justify-content-center mt-3">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/admin.js"></script>
+</body>
+</html>
