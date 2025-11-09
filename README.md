@@ -19,10 +19,6 @@ Open the client/ folder and open any page in your browser (index.html recommende
 
 All workflow is client-side — no server setup is needed for basic demonstration/development.
 
-For custom registration, be sure to link:
-
-register.html to ../css/register.css and ../js/register-validation.js (as shown in the latest HTML code).
-
 Use modern browsers (Chrome, Edge, or Firefox) for best compatibility.
 
 ✨ How to Use
