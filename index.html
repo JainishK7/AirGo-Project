@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirGo - Book Your Flight With Ease</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #0066CC;
+            padding: 1rem 2rem;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white !important;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            margin: 0 10px;
+            font-size: 1rem;
+            transition: opacity 0.3s;
+        }
+
+        .nav-link:hover {
+            opacity: 0.8;
+        }
+
+        .nav-link i {
+            margin-right: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                        url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1600') center/cover;
+            color: white;
+            padding: 150px 0;
+            text-align: center;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .btn-hero {
+            background-color: #FF6B35;
+            color: white;
+            padding: 16px 45px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-hero:hover {
+            background-color: #ff5722;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+            color: white;
+        }
+
+        /* Search Section */
+        .search-section {
+            background: #f8f9fa;
+            padding: 80px 0;
+            margin-top: -50px;
+            position: relative;
+        }
+
+        .search-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .search-card h3 {
+            margin-bottom: 30px;
+            color: #333;
+            font-weight: 600;
+            font-size: 1.8rem;
+        }
+
+        .search-card h3 i {
+            color: #0066CC;
+            margin-right: 10px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .form-control, .form-select {
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: #0066CC;
+            box-shadow: 0 0 0 0.2rem rgba(0, 102, 204, 0.25);
+        }
+
+        .btn-search {
+            background-color: #0066CC;
+            color: white;
+            padding: 14px 0;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-search:hover {
+            background-color: #0052a3;
+            color: white;
+        }
+
+        .btn-search i {
+            margin-right: 8px;
+        }
+
+        /* Special Offers Section */
+        .offers-section {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .offer-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+
+        .offer-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .offer-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .offer-content {
+            padding: 25px;
+        }
+
+        .offer-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .offer-price {
+            font-size: 1.4rem;
+            color: #0066CC;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .offer-discount {
+            background: #28a745;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        footer h5 {
+            font-weight: 700;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+        }
+
+        footer p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+        }
+
+        footer a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 12px;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin-right: 20px;
+            font-size: 1.8rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .social-icons a:hover {
+            color: white;
+        }
+
+        footer hr {
+            background-color: rgba(255,255,255,0.2);
+            margin: 40px 0 30px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .search-card {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-plane-departure"></i>AirGo
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="background-color: white;">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="client-flight-page.html">Flights</a></li>
+                    <li class="nav-item"><a class="nav-link" href="client-hotel-page.html">Hotels</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cars.html">Cars</a></li>
+                    <li class="nav-item"><a class="nav-link" href="offers.html">Offers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="insurance.html">Insurance</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html"><i class="fas fa-user"></i> Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-user-plus"></i> Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Book Your Flight With Ease</h1>
+            <p>Find the best deals on flights to your favorite destinations. Travel smart with AirGo.</p>
+            <a href="client-flight-page.html" class="btn-hero">Explore Destinations</a>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-card">
+                <h3><i class="fas fa-search"></i>Find Your Perfect Flight</h3>
+                <form id="searchForm">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="from" class="form-label">From</label>
+                            <input type="text" class="form-control" id="from" placeholder="Enter departure city" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="to" class="form-label">To</label>
+                            <input type="text" class="form-control" id="to" placeholder="Enter destination city" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="departure" class="form-label">Departure Date</label>
+                            <input type="date" class="form-control" id="departure" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="return" class="form-label">Return Date</label>
+                            <input type="date" class="form-control" id="return">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="passengers" class="form-label">Passengers</label>
+                            <select class="form-select" id="passengers">
+                                <option value="1">1 Passenger</option>
+                                <option value="2">2 Passengers</option>
+                                <option value="3">3 Passengers</option>
+                                <option value="4">4 Passengers</option>
+                                <option value="5">5+ Passengers</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-search w-100">
+                                <i class="fas fa-search"></i>Search Flights
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers Section -->
+    <section class="offers-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Special Offers</h2>
+                <p>Don't miss out on our exclusive travel deals!</p>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-3">
+                    <div class="offer-card">
+                        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=500" alt="Goa" class="offer-img">
+                        <div class="offer-content">
+                            <h5 class="offer-title">Goa Getaway</h5>
+                            <div class="offer-price">Starting at ₹4,999</div>
+                            <span class="offer-discount">20% OFF</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="offer-card">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500" alt="Himalayan" class="offer-img">
+                        <div class="offer-content">
+                            <h5 class="offer-title">Himalayan Escape</h5>
+                            <div class="offer-price">Starting at ₹6,499</div>
+                            <span class="offer-discount">15% OFF</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="offer-card">
+                        <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=500" alt="Metro" class="offer-img">
+                        <div class="offer-content">
+                            <h5 class="offer-title">Metro Madness</h5>
+                            <div class="offer-price">Starting at ₹3,799</div>
+                            <span class="offer-discount">10% OFF</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="offer-card">
+                        <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=500" alt="Heritage" class="offer-img">
+                        <div class="offer-content">
+                            <h5 class="offer-title">Heritage Tour</h5>
+                            <div class="offer-price">Starting at ₹5,599</div>
+                            <span class="offer-discount">25% OFF</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5><i class="fas fa-plane-departure"></i> AirGo</h5>
+                    <p>Your trusted partner for hassle-free flight bookings. Travel the world with confidence and comfort.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <a href="index.html">Home</a>
+                    <a href="client-flight-page.html">Flights</a>
+                    <a href="client-hotel-page.html">Hotels</a>
+                    <a href="cars.html">Cars</a>
+                    <a href="client-about-us-page.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Support</h5>
+                    <a href="#">Help Center</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="login.html">Login</a>
+                    <a href="register.html">Register</a>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2025 AirGo. All Rights Reserved. | Designed for hassle-free travel</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Set minimum date for departure (today)
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('departure').setAttribute('min', today);
+        
+        // Update return date minimum when departure changes
+        document.getElementById('departure').addEventListener('change', function() {
+            document.getElementById('return').setAttribute('min', this.value);
+        });
+
+        // Search form submission
+        document.getElementById('searchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const from = document.getElementById('from').value;
+            const to = document.getElementById('to').value;
+            const departure = document.getElementById('departure').value;
+            const returnDate = document.getElementById('return').value;
+            const passengers = document.getElementById('passengers').value;
+            
+            if (from && to && departure) {
+                alert(`Searching flights:\nFrom: ${from}\nTo: ${to}\nDeparture: ${departure}\nPassengers: ${passengers}`);
+                // Redirect to flight search page
+                window.location.href = 'client-flight-page.html';
+            }
+        });
+    </script>
+</body>
+</html>
